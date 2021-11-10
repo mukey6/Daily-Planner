@@ -41,8 +41,8 @@ function saveInput (){
 // console.log(task)
 // localStorage.setItem(`textarea`, textarea)
 
-$("#saveBtn").click(function (){
-var task = $("#task").val()
-console.log(tasks)
+$(".saveBtn").click(function (){
+var task = $(".task").val()
+console.log($(this).siblings("textarea").val())
 
 })
