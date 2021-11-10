@@ -8,7 +8,7 @@ var hour3 = $("#3")
 var hour4 = $("#4")
 var hour5 = $("#5")
 console.log(hour9)
-var currentTime = moment().format("hh:mm a");
+var currentTime = moment().hour();
 console.log("the time is ", currentTime)
 
 
@@ -17,6 +17,7 @@ $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 function updateHourly(){
     for (let i = 9; i < 18 ; i++) {
         console.log(i)
+console.log(currentTime)
 
      // if time has passed set color 
         if (currentTime < i){
