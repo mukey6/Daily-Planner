@@ -34,15 +34,18 @@ else {
 
 }
 
-function saveInput (){
+function savedInput (){
+    task = JSON.parse(localStorage.getItem("plan"));
+    
 
 }
 
-// console.log(task)
-// localStorage.setItem(`textarea`, textarea)
+
+
 
 $(".saveBtn").click(function (){
-var task = $(".task").val()
+var task = $(this).siblings("textarea").val()
 console.log($(this).siblings("textarea").val())
 
+localStorage.setItem("plan", JSON.stringify(task))
 })
