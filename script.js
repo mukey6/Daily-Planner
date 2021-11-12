@@ -1,57 +1,48 @@
-var hour9 = $("#9")
-var hour10 = $("#10")
-var hour11 = $("#11")
-var hour12 = $("#12")
-var hour1 = $("#1")
-var hour2 = $("#2")
-var hour3 = $("#3")
-var hour4 = $("#4")
-var hour5 = $("#5")
 var currentTime = moment().hour();
 
 
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
 function updateHourly(){
-    for (let i = 9; i <= 18 ; i++) {
-
-     // if time has passed set color 
-        console.log("current time is " + currentTime)
-        console.log("What is this " + i)
-        console.log("current time is greater than ", currentTime>i)
+    for (let i = 9; i < 18 ; i++) {
+ // if time has passed set color 
      if (currentTime > i){
-            $(".description").addClass("past")
-            console.log("past")
+           colorTimeBlock(i, "past")
         }
         // if time is current 
          if (currentTime == i){
-            $(".description").addClass("present")
-            console.log("present")
+            colorTimeBlock(i, "present")
         }  
-        // if (currentTime < i){
-        //     $(".description").addClass("future")
+        //if time is in the future
+        if (currentTime < i){
+            colorTimeBlock(i, "future")
 
-        // }   
+        }   
     }
 }
 
-
-
-function savedInput (){
-    task = JSON.parse(localStorage.getItem("plan"));
-
+function colorTimeBlock(hour, time){
+    $(`#${hour}`).children(".description").addClass(time)
 
 }
 
 
+function displaySchedule(){
+    for (let i = 9 ; i < 18; i++) {
+        let currentTask = JSON.parse(localStorage.getItem(i))
+        $(`#${i}`).children(".description").text(currentTask) 
+        
+    }
 
+}
 
 $(".saveBtn").click(function (){
+   var getID = $(this).parent().attr("id")
+   
 var task = $(this).siblings("textarea").val()
 
-console.log($(this).siblings("textarea").val())
-
-localStorage.setItem("plan", JSON.stringify(task))
+localStorage.setItem(getID, JSON.stringify(task))
 })
 
 updateHourly()
+displaySchedule()
