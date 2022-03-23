@@ -26,14 +26,12 @@ function colorTimeBlock(hour, time){
 
 }
 
-
 function displaySchedule(){
     for (let i = 9 ; i < 18; i++) {
         let currentTask = JSON.parse(localStorage.getItem(i))
         $(`#${i}`).children(".description").text(currentTask) 
         
     }
-
 }
 
 $(".saveBtn").click(function (){
