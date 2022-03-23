@@ -14,6 +14,7 @@ Created a daily work scheduler, it is a time block for regular business hour (9-
 - HTML
 - CSS
 - JavaScript  
+- Bootstrap 
 
 ## Deployed Link
 https://mukey6.github.io/Daily-Planner/
